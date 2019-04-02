@@ -174,6 +174,23 @@ $res=(echo $config | azure-vnet)
 
 echo $res
 
+#optional - change dns record on DC
+
+$ip = (ConvertFrom-Json ($res -join '')).ips 
+$addresscidr = ($ip | select address).address
+$ipaddress = Split-Path -Path $addresscidr -Parent
+
+Invoke-Command -ScriptBlock {
+
+    $OldObj = Get-DnsServerResourceRecord -Name "myapp" -ZoneName "yourdomain.local" -RRType "A"
+    $newObj = $OldObj.Clone()
+    $newobj.recorddata.ipv4address=[System.Net.IPAddress]::parse($args[0])
+    $NewObj.TimeToLive = [System.TimeSpan]::FromMinutes(1)
+    Set-DnsServerResourceRecord -NewInputObject $NewObj -OldInputObject $OldObj -ZoneName "yourdomain.local" -PassThru
+
+} -ArgumentList $ipaddress -ComputerName dc
+
+
 ````
 
 ### Changes at container level
