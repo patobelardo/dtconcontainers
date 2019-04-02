@@ -221,6 +221,8 @@ set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\MSDTC -Name "FallbackToUnsecureR
 set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\MSDTC -Name "TurnOffRpcSecurity" -Value 1
 ````
 
+> If you are doing it interactively, do a "restart-service msdtc"
+
 #### COM Access settings
 
 > I needed to do it in one specific environment, but not neccesary on others. Need to confirm.
