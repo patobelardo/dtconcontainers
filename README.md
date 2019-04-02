@@ -185,7 +185,7 @@ Once you have connectivity, there are some changes I needed to do.
 #### DNS suffix
 
 ````powershell
-Set-DnsClientGlobalSetting -SuffixSearchList @("careadvance.local")
+Set-DnsClientGlobalSetting -SuffixSearchList @("yourdomain.local")
 ````
 
 #### DTC Settings
