@@ -206,6 +206,8 @@ set-ItemProperty -Path HKLM:\SOFTWARE\Microsoft\MSDTC -Name "TurnOffRpcSecurity"
 
 #### COM Access settings
 
+> I needed to do it in one specific environment, but not neccesary on others. Need to confirm.
+
 ````powershell
 #Everyone
 $sid = "S-1-1-0"
