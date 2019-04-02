@@ -253,9 +253,9 @@ $result = $Reg.SetBinaryValue(2147483650,"software\microsoft\ole","MachineLaunch
 
 ### Checklist
 
-- DNS is working well (needs something to update dns record on docker-exec)
-- Connectivity is working (short and fqdn - ping and nslookup)
-- Remote WMI is working (was the last piece of this PoC). Do a simple gwmi win32_operatingsystem -computer [containerID] and should work well.
+- DNS is working well. I added code to update DNS automatically at the docker-exec.ps1
+- Connectivity is working (NETBIOS and fqdn - ping and nslookup)
+- Remote WMI is working (was the last piece of this PoC). Do a simple gwmi win32_operatingsystem -computer [containerID] and should work well (To be reviewed)
 
 
 
