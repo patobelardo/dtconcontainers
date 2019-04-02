@@ -79,13 +79,13 @@ Service account creation (at the domain controller)
 ````powershell
 Import-module ActiveDirectory
 Add-KdsRootKey –EffectiveTime ((get-date).addhours(-10));
-New-ADServiceAccount -Name [account_name] -DNSHostName myapp.careadvance.local -PrincipalsAllowedToRetrieveManagedPassword "Domain Controllers", "Domain Admins", "CN=Container Hosts,CN=Builtin, DC=careadvance, DC=local" -KerberosEncryptionType RC4, AES128, AES256
+New-ADServiceAccount -Name [account_name] -DNSHostName myapp.mydomain.local -PrincipalsAllowedToRetrieveManagedPassword "Domain Controllers", "Domain Admins", "CN=Container Hosts,CN=Builtin, DC=mydomain, DC=local" -KerberosEncryptionType RC4, AES128, AES256
 ````
 
 Add Host to the "Container Hosts" group and verify with:
 
 ````powershell
-Get-ADGroupMember -Identity "CN=Container Hosts,CN=Builtin, DC=careadvance, DC=local"
+Get-ADGroupMember -Identity "CN=Container Hosts,CN=Builtin, DC=mydomain, DC=local"
 ````
 
 After restart the host, execute this (on each host):
