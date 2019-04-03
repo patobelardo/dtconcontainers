@@ -197,7 +197,7 @@ Invoke-Command -ScriptBlock {
 
 Once you have connectivity, there are some changes I needed to do.
 
->This is setting WMI to everyone and MSDTC to use No Authentication. This was intended for test purposes and needed to be fixed. 
+>This is changing WMI access to everyone and MSDTC to use No Authentication. This was intended for test purposes and needed to be fixed. 
 
 #### DNS suffix
 
