@@ -123,9 +123,9 @@ Follow [this](https://github.com/patobelardo/azure-container-networking/blob/mas
 
 ### Configure docker-exec script
 
-This is the original.
+[Here](https://github.com/patobelardo/azure-container-networking/blob/master/scripts/docker-exec.ps1) is the original script.
 
-This needed some changes for my environment, like the path of cni (different to the k folder for k8s). This is mine after some changes:
+I made changes for my environment, like the path of cni (different to the k folder for k8s). Here is mine after some changes:
 
 ````powershell
 Param(
