@@ -182,11 +182,11 @@ $ipaddress = Split-Path -Path $addresscidr -Parent
 
 Invoke-Command -ScriptBlock {
 
-    $OldObj = Get-DnsServerResourceRecord -Name "myapp" -ZoneName "yourdomain.local" -RRType "A"
+    $OldObj = Get-DnsServerResourceRecord -Name "myapp" -ZoneName "mydomain.local" -RRType "A"
     $newObj = $OldObj.Clone()
     $newobj.recorddata.ipv4address=[System.Net.IPAddress]::parse($args[0])
     $NewObj.TimeToLive = [System.TimeSpan]::FromMinutes(1)
-    Set-DnsServerResourceRecord -NewInputObject $NewObj -OldInputObject $OldObj -ZoneName "yourdomain.local" -PassThru
+    Set-DnsServerResourceRecord -NewInputObject $NewObj -OldInputObject $OldObj -ZoneName "mydomain.local" -PassThru
 
 } -ArgumentList $ipaddress -ComputerName dc
 
@@ -202,7 +202,7 @@ Once you have connectivity, there are some changes I needed to do.
 #### DNS suffix
 
 ````powershell
-Set-DnsClientGlobalSetting -SuffixSearchList @("yourdomain.local")
+Set-DnsClientGlobalSetting -SuffixSearchList @("mydomain.local")
 ````
 
 #### DTC Settings
