@@ -262,7 +262,7 @@ $result = $Reg.SetBinaryValue(2147483650,"software\microsoft\ole","MachineLaunch
 ## Execution
 
 ````powershell
-docker-exec.ps1 -containerName test -namespace default -image FROM mcr.microsoft.com/windows/servercore:ltsc2019 -command ADD
+docker-exec.ps1 -containerName test -namespace default -image mcr.microsoft.com/windows/servercore:ltsc2019 -command ADD
 ````
 
 > In this case, I copied the .exe file there and ran scripts mentioned before.
