@@ -10,6 +10,9 @@ The PoC environment includes:
 - Container Host VM (domain joined)
 - Container running inside that VM (using gMSA)
 
+> The purpose of this PoC was to demostrate the changes needed to have MSDTC working. At the time of this document, MSDTC is not supported on Windows Containers and not recommended to be used in production.
+>Latest information about this topic can be found [here](https://docs.microsoft.com/en-us/dotnet/architecture/modernize-with-azure-containers/modernize-existing-apps-to-cloud-optimized/when-not-to-deploy-to-windows-containers)
+
 The sample application I used is doing just this:
 
 ````c#
